@@ -52,10 +52,11 @@
 # :: Volumes
     VOLUME ["/pgbouncer/etc"]
 
+
 # :: Monitor
-    RUN apk --update --no-cache add curl
     RUN chmod +x /usr/local/bin/healthcheck.sh
     HEALTHCHECK CMD /usr/local/bin/healthcheck.sh || exit 1
+
 
 # :: Start
     RUN chmod +x /usr/local/bin/entrypoint.sh
